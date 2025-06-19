@@ -59,7 +59,7 @@ const Contact = () => {
     
     try {
       // Submit to Netlify Forms
-      const response = await fetch('/', {
+      const response = await fetch('/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
@@ -132,6 +132,14 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+      {/* Static form for Netlify detection - hidden */}
+      <form name="contact" data-netlify="true" style={{ display: 'none' }}>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="company" />
+        <textarea name="message"></textarea>
+        <input type="hidden" name="subject" />
+      </form>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
