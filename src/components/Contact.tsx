@@ -98,21 +98,22 @@ const Contact = () => {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
             className="text-center max-w-2xl mx-auto"
+            suppressHydrationWarning
           >
             <div className="w-20 h-20 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Thank You!
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 px-4 sm:px-0">
               Your message has been sent successfully. Our team will get back to you within 24 hours.
             </p>
             <button
@@ -131,7 +132,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-800">
       {/* Static form for Netlify detection - hidden */}
       <form name="contact" data-netlify="true" style={{ display: 'none' }}>
         <input type="text" name="name" />
@@ -148,23 +149,23 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Ready to maximize your crypto investments? Contact our team to discuss 
             your portfolio and explore our exclusive trading strategies.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
               Contact Information
             </h3>
             
@@ -196,7 +197,7 @@ const Contact = () => {
               ))}
             </div>
 
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+            <div className="bg-white dark:bg-gray-900 rounded-xl p-4 sm:p-6 shadow-lg">
               <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
                 Office Hours
               </h4>
@@ -222,16 +223,16 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg"
+            className="bg-white dark:bg-gray-900 rounded-xl p-6 sm:p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Send us a Message
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-6" name="contact" method="POST" data-netlify="true">
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="subject" value="New Contact Form Submission - Walras Research" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Full Name *

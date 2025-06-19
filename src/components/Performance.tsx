@@ -82,7 +82,7 @@ const Performance = () => {
   };
 
   return (
-    <section id="performance" className="py-20 bg-white dark:bg-gray-900">
+    <section id="performance" className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,10 +91,10 @@ const Performance = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Performance <span className="gradient-text">Dashboard</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Track record of consistent outperformance across multiple market cycles, 
             demonstrating the robustness of our quantitative strategies.
           </p>
@@ -105,35 +105,35 @@ const Performance = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16"
         >
           {keyMetrics.map((metric, index) => (
-            <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 text-center">
+            <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6 text-center">
               <div className="w-12 h-12 bg-white dark:bg-gray-700 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <metric.icon className={`w-6 h-6 ${metric.color}`} />
               </div>
-              <div className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 {metric.value}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                 {metric.label}
               </div>
             </div>
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6"
+            className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6"
           >
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6">
               Monthly Returns vs Benchmark
             </h3>
-            <div className="h-80">
+            <div className="h-64 sm:h-80" suppressHydrationWarning>
               {mounted ? (
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={performanceData}>
@@ -178,12 +178,12 @@ const Performance = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6"
+            className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6"
           >
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6">
               Sharpe Ratio Progression
             </h3>
-            <div className="h-80">
+            <div className="h-64 sm:h-80" suppressHydrationWarning>
               {mounted ? (
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={performanceData}>
@@ -227,12 +227,12 @@ const Performance = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6"
+          className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6"
         >
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Monthly Performance Comparison
           </h3>
-          <div className="h-80">
+          <div className="h-64 sm:h-80" suppressHydrationWarning>
             {mounted ? (
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={performanceData}>
@@ -265,24 +265,24 @@ const Performance = () => {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <div className="bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Consistent Excellence</h3>
-            <p className="text-lg mb-6 opacity-90 max-w-3xl mx-auto">
+          <div className="bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl p-6 sm:p-8 text-white">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4">Consistent Excellence</h3>
+            <p className="text-base sm:text-lg mb-6 opacity-90 max-w-3xl mx-auto px-4 sm:px-0">
               Our quantitative strategies have delivered superior risk-adjusted returns across various market conditions, 
               consistently outperforming traditional benchmarks while maintaining disciplined risk management.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto">
               <div>
-                <div className="text-3xl font-bold mb-2">100%</div>
-                <div className="text-sm opacity-90">Months Profitable</div>
+                <div className="text-2xl sm:text-3xl font-bold mb-2">100%</div>
+                <div className="text-xs sm:text-sm opacity-90">Months Profitable</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">2.8x</div>
-                <div className="text-sm opacity-90">Avg. vs Benchmark</div>
+                <div className="text-2xl sm:text-3xl font-bold mb-2">2.8x</div>
+                <div className="text-xs sm:text-sm opacity-90">Avg. vs Benchmark</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">&lt;5%</div>
-                <div className="text-sm opacity-90">Max Drawdown</div>
+                <div className="text-2xl sm:text-3xl font-bold mb-2">&lt;5%</div>
+                <div className="text-xs sm:text-sm opacity-90">Max Drawdown</div>
               </div>
             </div>
           </div>

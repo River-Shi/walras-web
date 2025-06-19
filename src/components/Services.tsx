@@ -53,7 +53,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,10 +62,10 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Our <span className="gradient-text">Trading Strategies</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Diversified portfolio of quantitative strategies designed to maximize returns 
             while managing risk across different market conditions.
           </p>
@@ -76,24 +76,24 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20"
         >
           {features.map((feature, index) => (
             <div key={index} className="text-center">
               <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-6">
                 <feature.icon className="w-8 h-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                 {feature.description}
               </p>
             </div>
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {tradingStrategies.slice(0, 3).map((strategy, index) => {
             const IconComponent = iconMap[strategy.icon as keyof typeof iconMap];
             let strategyName = strategy.name;
@@ -122,7 +122,7 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700"
+                className="bg-white dark:bg-gray-900 rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 dark:border-gray-700"
               >
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
@@ -133,11 +133,11 @@ const Services = () => {
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
                   {strategyName}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 text-center leading-relaxed">
                   {description}
                 </p>
               </motion.div>
