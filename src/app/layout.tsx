@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -6,18 +6,22 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Walras Research - Quantitative Crypto Trading',
-  description: 'Advanced algorithmic strategies delivering exceptional returns and stable growth for institutional and high-net-worth investors in cryptocurrency markets.',
-  keywords: 'crypto trading, quantitative finance, algorithmic trading, cryptocurrency, investment, hedge fund',
+  title: 'Walras Research',
+  description: 'Advanced algorithmic strategies delivering exceptional returns and stable growth for institutional and high-net-worth investors in cryptocurrency and traditional markets.',
+  keywords: 'crypto trading, quantitative finance, algorithmic trading, cryptocurrency, investment, hedge fund, traditional markets',
   authors: [{ name: 'Walras Research' }],
-  viewport: 'width=device-width, initial-scale=1',
   robots: 'index, follow',
   openGraph: {
-    title: 'Walras Research - Quantitative Crypto Trading',
+    title: 'Walras Research',
     description: 'Advanced algorithmic strategies delivering exceptional returns and stable growth for institutional and high-net-worth investors.',
     type: 'website',
     locale: 'en_US',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

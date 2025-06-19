@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -33,11 +33,6 @@ const Footer = () => {
     ]
   };
 
-  const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com/company/walras-research' },
-    { icon: Twitter, href: 'https://twitter.com/walrasresearch' },
-    { icon: Facebook, href: 'https://facebook.com/walrasresearch' }
-  ];
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -62,14 +57,6 @@ const Footer = () => {
                 <div className="flex items-center text-gray-300">
                   <Mail className="w-5 h-5 mr-3 text-primary-400" />
                   <span>contact@walras-research.com</span>
-                </div>
-                <div className="flex items-center text-gray-300">
-                  <Phone className="w-5 h-5 mr-3 text-primary-400" />
-                  <span>+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center text-gray-300">
-                  <MapPin className="w-5 h-5 mr-3 text-primary-400" />
-                  <span>123 Financial District, NY</span>
                 </div>
               </div>
             </motion.div>
@@ -175,19 +162,6 @@ const Footer = () => {
               </p>
             </div>
             
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 hover:bg-primary-600 rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
         </motion.div>
       </div>

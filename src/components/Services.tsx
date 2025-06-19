@@ -35,7 +35,7 @@ const Services = () => {
     {
       icon: Zap,
       title: 'High-Frequency Execution',
-      description: 'Sub-millisecond execution across 20+ exchanges for optimal price discovery'
+      description: 'Sub-millisecond execution across 3+ exchanges for optimal price discovery'
     }
   ];
 
@@ -93,9 +93,27 @@ const Services = () => {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {tradingStrategies.map((strategy, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {tradingStrategies.slice(0, 3).map((strategy, index) => {
             const IconComponent = iconMap[strategy.icon as keyof typeof iconMap];
+            let strategyName = strategy.name;
+            let riskLevel = strategy.riskLevel;
+            let description = strategy.description;
+            
+            // Update strategy names, risk levels, and descriptions
+            if (index === 0) {
+              strategyName = 'Market Neutral Arbitrage';
+              riskLevel = 'Low';
+              description = 'Exploits price discrepancies between related securities while maintaining market neutrality. This strategy provides consistent returns with minimal market exposure.';
+            } else if (index === 1) {
+              strategyName = 'Statistical Arbitrage';
+              riskLevel = 'Medium';
+              description = 'Uses advanced statistical models to identify and capitalize on mean-reverting relationships between assets. Combines quantitative analysis with systematic execution.';
+            } else if (index === 2) {
+              strategyName = 'CTA Strategy';
+              riskLevel = 'High';
+              description = 'Commodity Trading Advisor strategy that leverages trend-following algorithms across futures markets. Designed to capture momentum in various asset classes.';
+            }
             
             return (
               <motion.div
@@ -110,57 +128,23 @@ const Services = () => {
                   <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
                     {IconComponent && <IconComponent className="w-6 h-6 text-primary-600" />}
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getRiskColor(strategy.riskLevel)}`}>
-                    {strategy.riskLevel} Risk
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getRiskColor(riskLevel)}`}>
+                    {riskLevel} Risk
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  {strategy.name}
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
+                  {strategyName}
                 </h3>
-
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                  {strategy.description}
+                
+                <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                  {description}
                 </p>
-
-                <div className="flex items-center justify-between mb-6">
-                  <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Expected Return</p>
-                    <p className="text-2xl font-bold text-primary-600">{strategy.expectedReturn}</p>
-                  </div>
-                </div>
-
-                <button className="w-full bg-primary-600 hover:bg-primary-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center group">
-                  Learn More
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </button>
               </motion.div>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-gradient-to-r from-primary-600 to-accent-600 rounded-xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-            <p className="text-lg mb-6 opacity-90">
-              Join our exclusive community of investors and start earning superior returns today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Schedule Consultation
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors">
-                View Track Record
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

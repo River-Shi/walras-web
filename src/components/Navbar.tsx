@@ -6,8 +6,10 @@ import { Menu, X } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -19,7 +21,6 @@ const Navbar = () => {
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#services', label: 'Services' },
-    { href: '#performance', label: 'Performance' },
     { href: '#contact', label: 'Contact' }
   ];
 
@@ -53,7 +54,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
-              {isOpen ? (
+              {mounted && isOpen ? (
                 <X className="h-6 w-6 text-gray-700 dark:text-gray-200" />
               ) : (
                 <Menu className="h-6 w-6 text-gray-700 dark:text-gray-200" />
@@ -63,7 +64,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {isOpen && (
+      {mounted && isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md">
             {navLinks.map((link) => (
